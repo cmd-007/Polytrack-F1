@@ -24881,7 +24881,7 @@
         const fu = JSON.parse('{"rE":"f1.0.0","l$":{"r":2,"M":4}}');
         const mu = "kodub"
           , gu = !1
-          , vu = "https://snowy-mountain-8e34.htmlunblockedgames.workers.dev/"
+          , vu = "https://vpskodub.weathered-poetry-8e1a.workers.dev/"
           , displaySiteUrl = ""
           , wu = fu.l$.r;
         ( () => {
@@ -32109,7 +32109,7 @@
                         throw new Error("Invalid track part id")
                     }
                 if (!(e in Sb))
-                    return null;
+                    e = Sb.Straight;
                 if (i.length - a < 4)
                     return null;
                 const o = i[a + 0] | i[a + 1] << 8 | i[a + 2] << 16 | i[a + 3] << 24;
@@ -50423,7 +50423,7 @@
         new WeakSet;
         /**
  * @license
- * Copyright 2025 https://snowy-mountain-8e34.htmlunblockedgames.workers.dev
+ * Copyright 2025 https://vpskodub.weathered-poetry-8e1a.workers.dev
  */
         var NW = function(e, t, n, i) {
             return new (n || (n = Promise))((function(r, a) {
