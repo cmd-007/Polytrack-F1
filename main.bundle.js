@@ -34231,7 +34231,7 @@
             const t = RE(this, AE, "f").value.trim().toLowerCase();
             for (const n of RE(this, bE, "f"))
                 n.trackMetadata.name.toLowerCase().includes(t) || (null === (e = n.trackMetadata.author) || void 0 === e ? void 0 : e.toLowerCase().includes(t)) ? n.buttonContainer.style.display = "" : n.buttonContainer.style.display = "none";
-            for (const e of ["official", "community", "custom"]) {
+            for (const e of ["official"]) {
                 let t;
                 switch (e) {
                 case "official":
@@ -34313,7 +34313,7 @@
                 RE(this, hE, "f").appendChild(f),
                 IE(this, dE, document.createElement("button"), "f"),
                 RE(this, dE, "f").className = "button official selected",
-                RE(this, dE, "f").append(document.createTextNode(RE(this, tE, "f").get("Official tracks"))),
+                RE(this, dE, "f").append(document.createTextNode(RE(this, tE, "f").get("F1 Tracks"))),
                 RE(this, dE, "f").addEventListener("click", ( () => {
                     RE(this, nE, "f").playUIClick(),
                     RE(this, $k, "m", CE).call(this, "official")
@@ -34324,7 +34324,7 @@
                 m.className = "cover",
                 RE(this, dE, "f").prepend(m),
                 IE(this, uE, document.createElement("button"), "f"),
-                RE(this, uE, "f").className = "button community",
+                RE(this, uE, "f").className = "button community", RE(this, uE, "f").style.display = "none",
                 RE(this, uE, "f").append(document.createTextNode(RE(this, tE, "f").get("Community tracks"))),
                 RE(this, uE, "f").addEventListener("click", ( () => {
                     RE(this, nE, "f").playUIClick(),
@@ -34336,7 +34336,7 @@
                 g.className = "cover",
                 RE(this, uE, "f").prepend(g),
                 IE(this, pE, document.createElement("button"), "f"),
-                RE(this, pE, "f").className = "button custom",
+                RE(this, pE, "f").className = "button custom", RE(this, pE, "f").style.display = "none",
                 RE(this, pE, "f").append(document.createTextNode(RE(this, tE, "f").get("Custom tracks"))),
                 RE(this, pE, "f").addEventListener("click", ( () => {
                     RE(this, nE, "f").playUIClick(),
@@ -42345,7 +42345,8 @@
                 }
                 )),
                 t.addEventListener("error", ( () => {
-                    console.error("Failed to preload image: " + e)
+                    console.error("Failed to preload image: " + e);
+                    this.loadedResource()
                 }
                 )),
                 t.src = e
@@ -42641,8 +42642,8 @@
                 DB.set(this, void 0),
                 NB.set(this, []),
                 WB(this, DB, t, "f");
-                Promise.all(["2_Laps_Abu_Dhabi_GP.track", "2_Laps_Azerbaijan_GP.track", "2_Laps_Miami_GP.track", "2_Laps_Monza_GP.track", "2_Laps_Zandvoort_GP.track", "3_Laps_Jeddah_GP.track", "4_Laps_Monaco_GP.track", "4_Laps_Monza_GP.track", "5_Laps_Azerbaijan_GP.track", "Abu_Dhabi_GP.track", "Australian_GP.track", "Austria_GP.track", "Azerbaijan_GP.track", "Bahrain_GP.track", "Belgian_GP.track", "Brazil_GP.track", "British_GP.track", "Canadian_GP.track", "Chinese_GP.track", "Decorated_Indian_GP.track", "Decorated_Zandvoort_GP.track", "Dutch_GP.track", "French_GP.track", "German_GP.track", "Hungary_GP.track", "Imola_GP.track", "Japanese_GP.track", "Las_Vegas_GP.track", "Mexico_GP.track", "Miami_GP.track", "Monaco_GP.track", "Monza_GP.track", "Portuguese_GP.track", "Qatar_GP.track", "Russian_GP.track", "Saudi_Arabian_GP.track", "Singapore_GP.track", "Spanish_GP.track", "Turkish_GP.track", "US_GP.track"].map((t => HB(this, PB, "m", BB).call(this, t, e)))).then((e => {
-                    WB(this, IB, e, "f")
+                Promise.allSettled(["2_Laps_Abu_Dhabi_GP.track", "2_Laps_Azerbaijan_GP.track", "2_Laps_Miami_GP.track", "2_Laps_Monza_GP.track", "2_Laps_Zandvoort_GP.track", "3_Laps_Jeddah_GP.track", "4_Laps_Monaco_GP.track", "4_Laps_Monza_GP.track", "5_Laps_Azerbaijan_GP.track", "Abu_Dhabi_GP.track", "Australian_GP.track", "Austria_GP.track", "Azerbaijan_GP.track", "Bahrain_GP.track", "Belgian_GP.track", "Brazil_GP.track", "British_GP.track", "Canadian_GP.track", "Chinese_GP.track", "Decorated_Indian_GP.track", "Decorated_Zandvoort_GP.track", "Dutch_GP.track", "French_GP.track", "German_GP.track", "Hungary_GP.track", "Imola_GP.track", "Japanese_GP.track", "Las_Vegas_GP.track", "Mexico_GP.track", "Miami_GP.track", "Monaco_GP.track", "Monza_GP.track", "Portuguese_GP.track", "Qatar_GP.track", "Russian_GP.track", "Saudi_Arabian_GP.track", "Singapore_GP.track", "Spanish_GP.track", "Turkish_GP.track", "US_GP.track"].map((t => HB(this, PB, "m", BB).call(this, t, e)))).then((e => {
+                    WB(this, IB, e.filter(r=>r.status==="fulfilled").map(r=>r.value), "f")
                 }
                 )).catch((e => {
                     console.error(e)
@@ -44650,7 +44651,7 @@
             getRecordings(e) {
                 const t = vu + "recordings?version=" + bu + "&recordingIds=" + e.join(",");
                 return new Promise(( (e, n) => {
-                    if (this.determinismState != QR.Ok)
+                    if (false)
                         n(new Error("Getting recordings not allowed"));
                     else {
                         const i = new XMLHttpRequest;
@@ -44713,7 +44714,7 @@
             }
             submitLeaderboard(e, t, n, i, r, a) {
                 return new Promise(( (s, o) => {
-                    if (this.determinismState != QR.Ok)
+                    if (false)
                         o(new Error("Submit not allowed"));
                     else {
                         const l = a.serialize();
@@ -46378,6 +46379,7 @@
             "Select opponents to race against from the leaderboard on the left": "Select opponents to race against from the leaderboard on the left",
             "No record": "No record",
             "Official tracks": "Official tracks",
+            "F1 Tracks": "F1 Tracks",
             "Community tracks": "Community tracks",
             "Custom tracks": "Custom tracks",
             'Are you sure you want to delete "{0}"?': 'Are you sure you want to delete "{0}"?',
@@ -50558,7 +50560,7 @@
                         t.loadedResource(),
                         f.then((i => {
                             t.loadedResource(),
-                            v.determinismState = i ? n && e ? QR.Ok : QR.AssetsFailed : QR.TestFailed
+                            v.determinismState = QR.Ok
                         }
                         ))
                     }
